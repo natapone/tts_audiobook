@@ -6,7 +6,7 @@ class TextToAudiobook:
         self.project_path = "./" + project_name + "/"
         self.char_limit_per_call = 200
 
-    def clean_txt_raw(self, file_name):
+    def break_txt_raw(self, file_name):
         file_path = self.project_path + "raw/"  + file_name
         clean_path = self.project_path + "clean/"  + file_name
 
@@ -39,6 +39,54 @@ class TextToAudiobook:
                 print("Line{} / {}: {}".format(line_count, char_count, line.strip()))
 
         return 1
+
+    def insert_ssml_header(self, s):
+        tag_begin = '<prosody rate="slow" pitch="-2st">'
+        tag_end = '</prosody>'
+
+        if len(s.strip()) > 0:
+            return (tag_begin + s + tag_end)
+        else:
+            return s
+
+    def insert_ssml_paragraph_break(self, s):
+        tag = '<break strength="weak"/>'
+
+        if len(s.strip()) == 0:
+            return (tag + s)
+        else:
+            return s
+
+    def insert_ssml_emphasis(self, s):
+        tag_begin = '<emphasis level="{}">'
+        tag_end = '</emphasis>'
+        char_strongs = ['!', '?']
+        quotes = ['"','“','”']
+
+        speechs = re.findall(
+            r'(["|“][^"|“|”]+["|”])'
+            , s )
+    #     print(speechs)
+
+        speechs.sort(key=len, reverse=1)
+        for speech in speechs:
+
+            emphasis_level = 'moderate'
+            for char_strong in char_strongs:
+                idx = speech.find(char_strong)
+                if idx > 0:
+                    emphasis_level = 'strong'
+
+            # remove quotes
+            speech_clean = speech
+            for quote in quotes:
+                speech_clean = speech_clean.replace(quote, '')
+
+            tag_full = tag_begin.format(emphasis_level) + speech_clean + tag_end
+    #         print(speech, "==>", tag_full)
+            s = s.replace(speech, tag_full, 1)
+
+        return s
 
     def read_txt_raw(self, file_name):
         file_path = self.project_path + "raw/"  + file_name
