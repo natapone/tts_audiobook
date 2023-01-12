@@ -4,6 +4,41 @@ class TextToAudiobook:
     def __init__(self, project_name):
         self.project_name = project_name
         self.project_path = "./" + project_name + "/"
+        self.char_limit_per_call = 200
+
+    def clean_txt_raw(self, file_name):
+        file_path = self.project_path + "raw/"  + file_name
+        clean_path = self.project_path + "clean/"  + file_name
+
+        tag_chapter_break = "[[-chapter_break-]]"
+        tag_character_break = "[[-character_break-]]"
+
+        with open(file_path, "r") as file_raw:
+            # print(file_raw.read())
+            lines = file_raw.readlines()
+
+            line_count = 0
+            char_count = 0
+            for line in lines:
+                line_count += 1
+
+                # insert chapter break
+                if self.is_chapter_header(line):
+                    char_count = 0
+                    print(tag_chapter_break)
+
+                # insert charactor limit break
+                char_count += len(line)
+                if char_count >= self.char_limit_per_call:
+                    # find break point
+                    idx = self.get_line_break(line)
+                    if idx > -1:
+                        line = line[ : idx] + "\n" + tag_character_break + "\n" + line[idx : ]
+                        char_count = len(line[idx : ])
+
+                print("Line{} / {}: {}".format(line_count, char_count, line.strip()))
+
+        return 1
 
     def read_txt_raw(self, file_name):
         file_path = self.project_path + "raw/"  + file_name
@@ -36,8 +71,29 @@ class TextToAudiobook:
 
         return s
 
-    # def test(self):
-    #     return 'goood!'
+    def is_chapter_header(self, s):
+        pattern = re.compile("^CHAPTER [A-Z|\d]*\.$")
+
+        if pattern.match(s):
+            return True
+        else:
+            return False
+
+    def get_line_break(self, s):
+        char_breaks = [',','”','"',';',':','.']
+
+        break_pos = 99999
+        for char_break in char_breaks:
+            idx = s.find(char_break + ' ')
+            if (idx > -1) and idx < break_pos:
+                break_pos = idx
+
+            # print(f"find '{char_break}' => {idx} ==> break: {break_pos}")
+
+        if break_pos == 99999:
+            return -1
+        else:
+            return break_pos+1
 
 # Steps
 # - fetch full text file
