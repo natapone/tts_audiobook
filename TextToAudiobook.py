@@ -9,6 +9,9 @@ class TextToAudiobook:
         self.char_limit_per_call = 500
         self.char_breaks = [',','”','"',';',':','.']
 
+        self.tag_chapter_break = "[[-chapter_break-]]"
+        self.tag_character_break = "[[-character_break-]]"
+
     def clean_txt_raw(self, file_name):
         dir_clean_path = self.project_file + "clean/"
         file_clean_path = dir_clean_path + file_name
@@ -62,7 +65,7 @@ class TextToAudiobook:
                     # print("     3==> {}".format(line_tag))
                     file_tag.write(line_tag + "\n")
 
-        print(f"Clean: {line_count} lines")
+        print(f"Tag: {line_count} lines")
         return file_tag_path
 
     def break_txt_tag(self, file_name):
@@ -72,9 +75,6 @@ class TextToAudiobook:
 
         # Check target dir
         Path(dir_break_path).mkdir(parents=True, exist_ok=True)
-
-        tag_chapter_break = "[[-chapter_break-]]"
-        tag_character_break = "[[-character_break-]]"
 
         with open(file_break_path, "w") as file_break:
             with open(file_tag_path, "r") as file_tag:
@@ -90,7 +90,7 @@ class TextToAudiobook:
                     if self.is_chapter_header(line):
                         char_count = 0
                         # print(tag_chapter_break)
-                        line =  tag_chapter_break + "\n" + line
+                        line =  self.tag_chapter_break + "\n" + line
 
                     # Replace tag with SSML
                     line = self.replace_tag_ssml(line.strip())
@@ -101,16 +101,72 @@ class TextToAudiobook:
                         # find break point
                         idx = self.get_line_break(line)
                         if idx > -1:
-                            line = line[ : idx] + "\n" + tag_character_break + "\n" + line[idx : ]
+                            line = line[ : idx] + "\n" + self.tag_character_break + "\n" + line[idx : ]
                             char_count = len(line[idx : ])
 
                     file_break.write(line + "\n")
                     # print("Line{} / {}: {}".format(line_count, char_count, line.strip()))
 
+                # Insert last break
+                file_break.write(self.tag_chapter_break)
+
+        print(f"Break: {line_count} lines")
         return file_break_path
 
     def split_txt_break(self, file_name):
-        pass
+        dir_split_path = self.project_file + "split/"
+        file_break_path = self.project_file + "break/" + file_name
+
+        # Check target dir
+        Path(dir_split_path).mkdir(parents=True, exist_ok=True)
+
+        with open(file_break_path, "r") as file_break:
+
+            lines = file_break.readlines()
+
+            line_count = 0
+            file_count = 0
+            ch_count = 0
+            part_count = 1
+            file_split_name = ''
+            text_script = ''
+
+            for line in lines:
+                line_count += 1
+
+                line = line.strip()
+
+                if (
+                    (line == self.tag_chapter_break)
+                    | (line == self.tag_character_break)
+                ):
+
+
+                    # Write to file
+                    file_split_name = self.project_name + "_" + str(ch_count) + "_" + str(part_count) + ".txt"
+                    # print (f"    ===> Write to:{file_split_name} :{text_script}")
+
+                    file_split_path = dir_split_path + file_split_name
+                    with open(file_split_path, "w") as file_split:
+                        file_split.write(text_script)
+
+                    text_script = ''
+                    file_count +=1
+
+                    if (line == self.tag_chapter_break):
+                        ch_count += 1
+                        part_count = 1
+
+                    if (line == self.tag_character_break):
+                        part_count += 1
+
+                else:
+                    # Find break
+                    text_script += line + "\n"
+                    # print("Line {}: {}".format(line_count, line.strip()))
+
+        print(f"Split: {file_count} files")
+        return dir_split_path
 
     def insert_tag_header(self, s):
         # tag_begin = '<prosody rate="slow" pitch="-2st">'

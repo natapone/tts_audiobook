@@ -1,0 +1,9 @@
+<prosody rate="slow" pitch="-2st">CHAPTER 32.</prosody>
+IN WHICH PHILEAS FOGG ENGAGES IN A DIRECT STRUGGLE WITH BAD FORTUNE
+<break strength="weak"/>
+<break strength="weak"/>
+The <emphasis level="moderate">China</emphasis> in leaving, seemed to have carried off Phileas Fogg’s last
+hope. None of the other steamers were able to serve his projects.
+<break strength="weak"/>
+<break strength="weak"/>
+<break strength="weak"/>

@@ -1,0 +1,9 @@
+<prosody rate="slow" pitch="-2st">CHAPTER 2.</prosody>
+IN WHICH PASSEPARTOUT IS CONVINCED THAT HE HAS AT LAST FOUND HIS IDEAL
+<break strength="weak"/>
+<break strength="weak"/>
+<emphasis level="strong">Faith?</emphasis> muttered Passepartout, somewhat flurried, “1’ve seen people at
+Madame Tussaud’s as lively as my new master!”
+<break strength="weak"/>
+Madame Tussaud’s <emphasis level="moderate">people</emphasis> let it be said, are of wax, and are much
+visited in London;
