@@ -4,7 +4,7 @@
 [[-break_weak-]]
 [[-break_weak-]]
 [[-header_begin-]]CHAPTER 1.[[-header_end-]]
-IN WHICH PHILEAS FOGG AND PASSEPARTOUT ACCEPT EACH OTHER, THE ONE AS
+IN WHICH Phileas Fogg AND PASSEPARTOUT ACCEPT EACH OTHER, THE ONE AS
 MASTER, THE OTHER AS MAN
 [[-break_weak-]]
 [[-break_weak-]]
@@ -25,7 +25,7 @@ visited in London; speech is all that is wanting to make them human.
 [[-break_weak-]]
 [[-break_weak-]]
 [[-header_begin-]]CHAPTER 32.[[-header_end-]]
-IN WHICH PHILEAS FOGG ENGAGES IN A DIRECT STRUGGLE WITH BAD FORTUNE
+IN WHICH Phileas Fogg ENGAGES IN A DIRECT STRUGGLE WITH BAD FORTUNE
 [[-break_weak-]]
 [[-break_weak-]]
 The [[-emphasis_moderate-]]China[[-emphasis_end-]] in leaving, seemed to have carried off Phileas Fogg’s last

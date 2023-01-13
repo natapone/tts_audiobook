@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+from google.cloud import texttospeech
 
 class TextToAudiobook:
     def __init__(self, project_name):
@@ -11,6 +12,32 @@ class TextToAudiobook:
 
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
+
+    def synthesize_ssml(self, ssml, audio_file_path):
+        client = texttospeech.TextToSpeechClient()
+        input_text = texttospeech.SynthesisInput(ssml=ssml)
+
+        voice = texttospeech.VoiceSelectionParams(
+            language_code="en-GB",
+            name="en-GB-Neural2-B",
+            ssml_gender=texttospeech.SsmlVoiceGender.MALE,
+        )
+
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3,
+            speaking_rate=0.8
+        )
+
+        response = client.synthesize_speech(
+            input=input_text, voice=voice, audio_config=audio_config
+        )
+
+        # The response's audio_content is binary.
+        with open(audio_file_path, "wb") as out:
+            out.write(response.audio_content)
+            print('Audio content written to file "output.mp3"')
+
+        return 1
 
     def clean_txt_raw(self, file_name):
         dir_clean_path = self.project_file + "clean/"
@@ -243,11 +270,11 @@ class TextToAudiobook:
 
     def replace_tag_ssml(self, s):
         ssml_tags = {
-            '[[-title_begin-]]': '<prosody rate="x-slow" pitch="-2st">',
+            '[[-title_begin-]]': '<prosody rate="slow" pitch="-2st">',
             '[[-title_end-]]': '</prosody>',
             '[[-header_begin-]]': '<prosody rate="slow" pitch="-2st">',
             '[[-header_end-]]': '</prosody>',
-            '[[-break_weak-]]': '<break strength="weak"/>',
+            '[[-break_weak-]]': '<break time="500ms"/>',
             '[[-emphasis_strong-]]': '<emphasis level="strong">',
             '[[-emphasis_moderate-]]': '<emphasis level="moderate">',
             '[[-emphasis_end-]]': '</emphasis>'
