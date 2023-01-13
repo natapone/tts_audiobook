@@ -1,14 +1,72 @@
 import re
+from pathlib import Path
 
 class TextToAudiobook:
     def __init__(self, project_name):
         self.project_name = project_name
         self.project_path = "./" + project_name + "/"
+        self.project_file = self.project_path + "project_file/"
         self.char_limit_per_call = 200
+        self.char_breaks = [',','”','"',';',':','.']
 
-    def break_txt_raw(self, file_name):
-        file_path = self.project_path + "raw/"  + file_name
-        clean_path = self.project_path + "clean/"  + file_name
+    def clean_txt_raw(self, file_name):
+        dir_clean_path = self.project_file + "clean/"
+        file_clean_path = dir_clean_path + file_name
+        file_raw_path = self.project_file + "raw/" + file_name
+
+        # Check target dir
+        Path(dir_clean_path).mkdir(parents=True, exist_ok=True)
+
+        with open(file_clean_path, "w") as file_clean:
+            with open(file_raw_path, "r") as file_raw:
+                lines = file_raw.readlines()
+
+                line_count = 0
+                for line in lines:
+                    line_count += 1
+
+                    # Replace Roman chapter number with numeric
+                    line_clean = self.clean_roman_num_in_string(line.strip())
+                    file_clean.write(line_clean + "\n")
+
+                    # print("Line {}: {}".format(line_count, line.strip()))
+                    # print("     ==> {}".format(line_clean))
+
+        print(f"Clean: {line_count} lines")
+        return file_clean_path
+
+    def tag_txt_clean(self, file_name):
+        dir_tag_path = self.project_file + "tag/"
+        file_tag_path = dir_tag_path + file_name
+        file_clean_path = self.project_file + "clean/" + file_name
+
+        # Check target dir
+        Path(dir_tag_path).mkdir(parents=True, exist_ok=True)
+
+        with open(file_tag_path, "w") as file_tag:
+            with open(file_clean_path, "r") as file_clean:
+                lines = file_clean.readlines()
+
+                line_count = 0
+                for line in lines:
+                    line_count += 1
+
+                    # print("Line {}: {}".format(line_count, line.strip()))
+                    line_tag = line.strip()
+                    line_tag = self.insert_tag_header(line_tag)
+                    # print("     1==> {}".format(line_tag))
+                    line_tag = self.insert_tag_emphasis(line_tag)
+                    # print("     2==> {}".format(line_tag))
+                    line_tag = self.insert_tag_paragraph_break(line_tag)
+                    # print("     3==> {}".format(line_tag))
+                    file_tag.write(line_tag + "\n")
+
+        print(f"Clean: {line_count} lines")
+        return file_tag_path
+
+    def break_txt_tag(self, file_name):
+        file_path = self.project_file + "raw/"  + file_name
+        clean_path = self.project_file + "clean/"  + file_name
 
         tag_chapter_break = "[[-chapter_break-]]"
         tag_character_break = "[[-character_break-]]"
@@ -40,28 +98,42 @@ class TextToAudiobook:
 
         return 1
 
-    def insert_ssml_header(self, s):
-        tag_begin = '<prosody rate="slow" pitch="-2st">'
-        tag_end = '</prosody>'
+    def split_txt_break(self, file_name):
+        pass
 
-        if len(s.strip()) > 0:
+    def insert_tag_header(self, s):
+        # tag_begin = '<prosody rate="slow" pitch="-2st">'
+        # tag_end = '</prosody>'
+
+        tag_begin = '[[-header_begin-]]'
+        tag_end = '[[-header_end-]]'
+
+
+        if len(s.strip()) > 0 and self.is_chapter_header(s):
             return (tag_begin + s + tag_end)
         else:
             return s
 
-    def insert_ssml_paragraph_break(self, s):
-        tag = '<break strength="weak"/>'
+    def insert_tag_paragraph_break(self, s):
+        # tag = '<break strength="weak"/>'
+        tag = '[[-break_weak-]]'
 
         if len(s.strip()) == 0:
             return (tag + s)
         else:
             return s
 
-    def insert_ssml_emphasis(self, s):
-        tag_begin = '<emphasis level="{}">'
-        tag_end = '</emphasis>'
+    def insert_tag_emphasis(self, s):
+        # tag_begin = '<emphasis level="{}">'
+        # tag_end = '</emphasis>'
+
+        tag_begin = '[[-emphasis_{}-]]'
+        tag_end = '[[-emphasis_end-]]'
+
         char_strongs = ['!', '?']
         quotes = ['"','“','”']
+        quotes = self.char_breaks + quotes
+        quotes = list(dict.fromkeys(quotes))
 
         speechs = re.findall(
             r'(["|“][^"|“|”]+["|”])'
@@ -77,19 +149,35 @@ class TextToAudiobook:
                 if idx > 0:
                     emphasis_level = 'strong'
 
-            # remove quotes
+            # remove quotes and char_break to prevent file break between tag
             speech_clean = speech
             for quote in quotes:
+                # print(speech,": clean==>", quote)
                 speech_clean = speech_clean.replace(quote, '')
 
             tag_full = tag_begin.format(emphasis_level) + speech_clean + tag_end
-    #         print(speech, "==>", tag_full)
+            # print(speech, "==>", tag_full)
             s = s.replace(speech, tag_full, 1)
 
         return s
 
+    def replace_tag_ssml(self, s):
+        ssml_tags = {
+            '[[-header_begin-]]': '<prosody rate="slow" pitch="-2st">',
+            '[[-header_end-]]': '</prosody>',
+            '[[-break_weak-]]': '<break strength="weak"/>',
+            '[[-emphasis_strong-]]': '<emphasis level="strong">',
+            '[[-emphasis_moderate-]]': '<emphasis level="moderate">',
+            '[[-emphasis_end-]]': '</emphasis>'
+        }
+
+        for key, value in ssml_tags.items():
+            s = s.replace(key, value)
+
+        return s
+
     def read_txt_raw(self, file_name):
-        file_path = self.project_path + "raw/"  + file_name
+        file_path = self.project_file + "raw/"  + file_name
 
         with open(file_path) as file_raw:
             # print(file_raw.read())
@@ -128,10 +216,9 @@ class TextToAudiobook:
             return False
 
     def get_line_break(self, s):
-        char_breaks = [',','”','"',';',':','.']
 
         break_pos = 99999
-        for char_break in char_breaks:
+        for char_break in self.char_breaks:
             idx = s.find(char_break + ' ')
             if (idx > -1) and idx < break_pos:
                 break_pos = idx
