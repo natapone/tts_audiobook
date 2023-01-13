@@ -1,6 +1,8 @@
+<speak>
 <prosody rate="slow" pitch="-2st">Epilogue</prosody>
 <break strength="weak"/>
-<emphasis level="moderate">AND 1 ONLY AM ESCAPED ALONE TO TELL THEE</emphasis> Job.
+<emphasis level="moderate">AND I ONLY AM ESCAPED ALONE TO TELL THEE</emphasis> Job.
 <break strength="weak"/>
 The drama’s done. Why then here does any one step forth?—Because one
 did survive the wreck.
+</speak>

@@ -147,6 +147,8 @@ class TextToAudiobook:
                     # print (f"    ===> Write to:{file_split_name} :{text_script}")
 
                     file_split_path = dir_split_path + file_split_name
+                    text_script = "<speak>\n"+text_script+"</speak>"
+
                     with open(file_split_path, "w") as file_split:
                         file_split.write(text_script)
 
@@ -277,7 +279,7 @@ class TextToAudiobook:
 
     def clean_roman_num_in_string(self, s):
         romans = re.findall(
-            r'(?=\b[MCDXLVI]{1,6}\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})'
+            r'(?=\b[MCDXLVI]{1,6}\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\.)'
             , s )
         # print(romans)
         romans.sort(key=len, reverse=1)

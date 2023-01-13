@@ -1,3 +1,4 @@
+<speak>
 <prosody rate="slow" pitch="-2st">CHAPTER 1.</prosody>
 IN WHICH PHILEAS FOGG AND PASSEPARTOUT ACCEPT EACH OTHER, THE ONE AS
 MASTER, THE OTHER AS MAN
@@ -8,3 +9,4 @@ Gardens, the house in which Sheridan died in 1814. He was one of the
 most noticeable members of the Reform Club, though he seemed always to
 avoid attracting attention;
 <break strength="weak"/>
+</speak>
