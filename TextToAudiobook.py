@@ -6,7 +6,7 @@ class TextToAudiobook:
         self.project_name = project_name
         self.project_path = "./" + project_name + "/"
         self.project_file = self.project_path + "project_file/"
-        self.char_limit_per_call = 200
+        self.char_limit_per_call = 500
         self.char_breaks = [',','”','"',';',':','.']
 
     def clean_txt_raw(self, file_name):
@@ -53,6 +53,7 @@ class TextToAudiobook:
 
                     # print("Line {}: {}".format(line_count, line.strip()))
                     line_tag = line.strip()
+                    line_tag = self.insert_tag_title(line_tag)
                     line_tag = self.insert_tag_header(line_tag)
                     # print("     1==> {}".format(line_tag))
                     line_tag = self.insert_tag_emphasis(line_tag)
@@ -65,38 +66,48 @@ class TextToAudiobook:
         return file_tag_path
 
     def break_txt_tag(self, file_name):
-        file_path = self.project_file + "raw/"  + file_name
-        clean_path = self.project_file + "clean/"  + file_name
+        dir_break_path = self.project_file + "break/"
+        file_break_path = dir_break_path + file_name
+        file_tag_path = self.project_file + "tag/" + file_name
+
+        # Check target dir
+        Path(dir_break_path).mkdir(parents=True, exist_ok=True)
 
         tag_chapter_break = "[[-chapter_break-]]"
         tag_character_break = "[[-character_break-]]"
 
-        with open(file_path, "r") as file_raw:
-            # print(file_raw.read())
-            lines = file_raw.readlines()
+        with open(file_break_path, "w") as file_break:
+            with open(file_tag_path, "r") as file_tag:
+                # print(file_raw.read())
+                lines = file_tag.readlines()
 
-            line_count = 0
-            char_count = 0
-            for line in lines:
-                line_count += 1
+                line_count = 0
+                char_count = 0
+                for line in lines:
+                    line_count += 1
 
-                # insert chapter break
-                if self.is_chapter_header(line):
-                    char_count = 0
-                    print(tag_chapter_break)
+                    # insert chapter break
+                    if self.is_chapter_header(line):
+                        char_count = 0
+                        # print(tag_chapter_break)
+                        line =  tag_chapter_break + "\n" + line
 
-                # insert charactor limit break
-                char_count += len(line)
-                if char_count >= self.char_limit_per_call:
-                    # find break point
-                    idx = self.get_line_break(line)
-                    if idx > -1:
-                        line = line[ : idx] + "\n" + tag_character_break + "\n" + line[idx : ]
-                        char_count = len(line[idx : ])
+                    # Replace tag with SSML
+                    line = self.replace_tag_ssml(line.strip())
 
-                print("Line{} / {}: {}".format(line_count, char_count, line.strip()))
+                    # insert charactor limit break
+                    char_count += len(line)
+                    if char_count >= self.char_limit_per_call:
+                        # find break point
+                        idx = self.get_line_break(line)
+                        if idx > -1:
+                            line = line[ : idx] + "\n" + tag_character_break + "\n" + line[idx : ]
+                            char_count = len(line[idx : ])
 
-        return 1
+                    file_break.write(line + "\n")
+                    # print("Line{} / {}: {}".format(line_count, char_count, line.strip()))
+
+        return file_break_path
 
     def split_txt_break(self, file_name):
         pass
@@ -108,8 +119,19 @@ class TextToAudiobook:
         tag_begin = '[[-header_begin-]]'
         tag_end = '[[-header_end-]]'
 
-
         if len(s.strip()) > 0 and self.is_chapter_header(s):
+            return (tag_begin + s + tag_end)
+        else:
+            return s
+
+    def insert_tag_title(self, s):
+        # tag_begin = '<prosody rate="x-slow" pitch="-2st">'
+        # tag_end = '</prosody>'
+
+        tag_begin = '[[-title_begin-]]'
+        tag_end = '[[-title_end-]]'
+
+        if len(s.strip()) > 0 and self.is_book_title(s):
             return (tag_begin + s + tag_end)
         else:
             return s
@@ -163,6 +185,8 @@ class TextToAudiobook:
 
     def replace_tag_ssml(self, s):
         ssml_tags = {
+            '[[-title_begin-]]': '<prosody rate="x-slow" pitch="-2st">',
+            '[[-title_end-]]': '</prosody>',
             '[[-header_begin-]]': '<prosody rate="slow" pitch="-2st">',
             '[[-header_end-]]': '</prosody>',
             '[[-break_weak-]]': '<break strength="weak"/>',
@@ -208,7 +232,17 @@ class TextToAudiobook:
         return s
 
     def is_chapter_header(self, s):
-        pattern = re.compile("^CHAPTER [A-Z|\d]*\.$")
+        pattern1 = re.compile("^CHAPTER [A-Z|\d]*\.$")
+        pattern2 = re.compile("^\[\[-header_begin-\]\]")
+        pattern3 = re.compile("^Epilogue")
+
+        if pattern1.match(s) or pattern2.match(s) or pattern3.match(s):
+            return True
+        else:
+            return False
+
+    def is_book_title(self, s):
+        pattern = re.compile("^Title:|Author:")
 
         if pattern.match(s):
             return True

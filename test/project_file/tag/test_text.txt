@@ -1,6 +1,6 @@
-Title: Around the World in Eighty Days
+[[-title_begin-]]Title: Around the World in Eighty Days[[-title_end-]]
 [[-break_weak-]]
-Author: Jules Verne
+[[-title_begin-]]Author: Jules Verne[[-title_end-]]
 [[-break_weak-]]
 [[-break_weak-]]
 [[-header_begin-]]CHAPTER 1.[[-header_end-]]
@@ -33,7 +33,7 @@ hope. None of the other steamers were able to serve his projects.
 [[-break_weak-]]
 [[-break_weak-]]
 [[-break_weak-]]
-Epilogue
+[[-header_begin-]]Epilogue[[-header_end-]]
 [[-break_weak-]]
 [[-emphasis_moderate-]]AND 1 ONLY AM ESCAPED ALONE TO TELL THEE[[-emphasis_end-]] Job.
 [[-break_weak-]]

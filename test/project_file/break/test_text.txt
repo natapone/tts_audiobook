@@ -1,0 +1,47 @@
+<prosody rate="x-slow" pitch="-2st">Title: Around the World in Eighty Days</prosody>
+<break strength="weak"/>
+<prosody rate="x-slow" pitch="-2st">Author: Jules Verne</prosody>
+<break strength="weak"/>
+<break strength="weak"/>
+[[-chapter_break-]]
+<prosody rate="slow" pitch="-2st">CHAPTER 1.</prosody>
+IN WHICH PHILEAS FOGG AND PASSEPARTOUT ACCEPT EACH OTHER, THE ONE AS
+MASTER, THE OTHER AS MAN
+<break strength="weak"/>
+<break strength="weak"/>
+Mr. Phileas Fogg lived, in 1872, at No. 7, Saville Row, Burlington
+Gardens, the house in which Sheridan died in 1814. He was one of the
+most noticeable members of the Reform Club, though he seemed always to
+avoid attracting attention;
+<break strength="weak"/>
+[[-chapter_break-]]
+<prosody rate="slow" pitch="-2st">CHAPTER 2.</prosody>
+IN WHICH PASSEPARTOUT IS CONVINCED THAT HE HAS AT LAST FOUND HIS IDEAL
+<break strength="weak"/>
+<break strength="weak"/>
+<emphasis level="strong">Faith?</emphasis> muttered Passepartout, somewhat flurried, “1’ve seen people at
+Madame Tussaud’s as lively as my new master!”
+<break strength="weak"/>
+Madame Tussaud’s <emphasis level="moderate">people</emphasis> let it be said, are of wax, and are much
+visited in London;
+[[-character_break-]]
+ speech is all that is wanting to make them human.
+<break strength="weak"/>
+<break strength="weak"/>
+[[-chapter_break-]]
+<prosody rate="slow" pitch="-2st">CHAPTER 32.</prosody>
+IN WHICH PHILEAS FOGG ENGAGES IN A DIRECT STRUGGLE WITH BAD FORTUNE
+<break strength="weak"/>
+<break strength="weak"/>
+The <emphasis level="moderate">China</emphasis> in leaving, seemed to have carried off Phileas Fogg’s last
+hope. None of the other steamers were able to serve his projects.
+<break strength="weak"/>
+<break strength="weak"/>
+<break strength="weak"/>
+[[-chapter_break-]]
+<prosody rate="slow" pitch="-2st">Epilogue</prosody>
+<break strength="weak"/>
+<emphasis level="moderate">AND 1 ONLY AM ESCAPED ALONE TO TELL THEE</emphasis> Job.
+<break strength="weak"/>
+The drama’s done. Why then here does any one step forth?—Because one
+did survive the wreck.
