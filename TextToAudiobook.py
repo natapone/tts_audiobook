@@ -1,4 +1,7 @@
 import re
+import os
+import time
+
 from pathlib import Path
 from google.cloud import texttospeech
 
@@ -35,7 +38,7 @@ class TextToAudiobook:
         # The response's audio_content is binary.
         with open(audio_file_path, "wb") as out:
             out.write(response.audio_content)
-            print('Audio content written to file "output.mp3"')
+            print(f"Generate audio => {audio_file_path}")
 
         return 1
 
@@ -141,7 +144,7 @@ class TextToAudiobook:
         return file_break_path
 
     def split_txt_break(self, file_name):
-        dir_split_path = self.project_file + "split/"
+        dir_split_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/"
         file_break_path = self.project_file + "break/" + file_name
 
         # Check target dir
@@ -170,7 +173,9 @@ class TextToAudiobook:
 
 
                     # Write to file
-                    file_split_name = self.project_name + "_" + str(ch_count) + "_" + str(part_count) + ".txt"
+                    # file_split_name = self.project_name + "_" + str(ch_count) + "_" + str(part_count) + ".txt"
+                    file_split_name = str(ch_count).zfill(4) + "_" + str(part_count).zfill(3) + ".txt"
+
                     # print (f"    ===> Write to:{file_split_name} :{text_script}")
 
                     file_split_path = dir_split_path + file_split_name
@@ -196,6 +201,54 @@ class TextToAudiobook:
 
         print(f"Split: {file_count} files")
         return dir_split_path
+
+    def synthesize_txt_split(self, file_name):
+        dir_split_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/"
+        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+        dir_backup_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/backup/"
+
+        # Check target dir
+        Path(dir_audio_path).mkdir(parents=True, exist_ok=True)
+        Path(dir_backup_path).mkdir(parents=True, exist_ok=True)
+
+        # List text files
+        file_list = []
+        file_count = 0
+        for file_name in os.listdir(dir_split_path):
+            # check if current path is a file
+            if os.path.isfile(os.path.join(dir_split_path, file_name)):
+                file_list.append(file_name)
+
+                # file_split_path = dir_split_path + file_name
+                # print(file_split_path)
+
+        file_list.sort()
+        for file_name in file_list:
+            file_split_path = dir_split_path + file_name
+            file_parts = file_name.split(".")
+            file_audio_path = dir_audio_path + file_parts[0] + '.mp3'
+            # print("Read: " + file_split_path)
+
+            # Read content
+            text_script = ''
+            with open(file_split_path, "r") as file_split:
+                text_script = file_split.read()
+
+            # Call API
+            # print(text_script)
+            self.synthesize_ssml(text_script, file_audio_path)
+            # print(" => Write: " + file_audio_path)
+
+            # Move converted file to backup folder
+            file_backup_path = dir_backup_path + file_name
+            os.rename(file_split_path, file_backup_path)
+            # print(" => Move: " + file_backup_path)
+
+            file_count +=1
+            time.sleep(1)
+
+        print(f"Synthesize: {file_count} files")
+        return dir_audio_path
 
     def insert_tag_header(self, s):
         # tag_begin = '<prosody rate="slow" pitch="-2st">'
@@ -348,6 +401,9 @@ class TextToAudiobook:
             return -1
         else:
             return break_pos+1
+
+    def file_to_folder_name(self, f):
+        return f.replace('.', '_')
 
 # Steps
 # - fetch full text file
