@@ -1,5 +1,5 @@
 <speak>
 speech is all that is wanting to make them human.
-<break time="500ms"/>
-<break time="500ms"/>
+<break time="600ms"/>
+<break time="600ms"/>
 </speak>

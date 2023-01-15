@@ -6,30 +6,32 @@ from pathlib import Path
 from google.cloud import texttospeech
 
 class TextToAudiobook:
-    def __init__(self, project_name):
+    def __init__(self, project_name, char_limit_per_call=3000):
         self.project_name = project_name
         self.project_path = "./" + project_name + "/"
         self.project_file = self.project_path + "project_file/"
-        self.char_limit_per_call = 500
+        self.char_limit_per_call = char_limit_per_call
         self.char_breaks = [',','”','"',';',':','.']
 
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
 
-    def synthesize_ssml(self, ssml, audio_file_path):
+    def synthesize_ssml(self, ssml, audio_file_path, voice=None, audio_config=None):
         client = texttospeech.TextToSpeechClient()
         input_text = texttospeech.SynthesisInput(ssml=ssml)
 
-        voice = texttospeech.VoiceSelectionParams(
-            language_code="en-GB",
-            name="en-GB-Neural2-B",
-            ssml_gender=texttospeech.SsmlVoiceGender.MALE,
-        )
+        if voice == None:
+            voice = texttospeech.VoiceSelectionParams(
+                language_code="en-GB",
+                name="en-GB-Neural2-B",
+                ssml_gender=texttospeech.SsmlVoiceGender.MALE,
+            )
 
-        audio_config = texttospeech.AudioConfig(
-            audio_encoding=texttospeech.AudioEncoding.MP3,
-            speaking_rate=0.8
-        )
+        if audio_config == None:
+            audio_config = texttospeech.AudioConfig(
+                audio_encoding=texttospeech.AudioEncoding.MP3,
+                speaking_rate=0.8
+            )
 
         response = client.synthesize_speech(
             input=input_text, voice=voice, audio_config=audio_config
@@ -202,7 +204,7 @@ class TextToAudiobook:
         print(f"Split: {file_count} files")
         return dir_split_path
 
-    def synthesize_txt_split(self, file_name):
+    def synthesize_txt_split(self, file_name, file_limit=100, voice=None, audio_config=None):
         dir_split_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/"
         dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
         dir_backup_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/backup/"
@@ -236,7 +238,7 @@ class TextToAudiobook:
 
             # Call API
             # print(text_script)
-            self.synthesize_ssml(text_script, file_audio_path)
+            self.synthesize_ssml(text_script, file_audio_path, voice, audio_config)
             # print(" => Write: " + file_audio_path)
 
             # Move converted file to backup folder
@@ -245,10 +247,44 @@ class TextToAudiobook:
             # print(" => Move: " + file_backup_path)
 
             file_count +=1
+            if file_count >= file_limit:
+                break
+
             time.sleep(1)
 
         print(f"Synthesize: {file_count} files")
         return dir_audio_path
+
+    # def merge_audio_chapter(self, file_name):
+    #     dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+    #     dir_audio_chapter_path = self.project_file + "audio/"
+    #
+    #     file_list = []
+    #     chapter_list = {}
+    #     file_count = 0
+    #     for file_name in os.listdir(dir_audio_path):
+    #         # check if current path is a file
+    #         if os.path.isfile(os.path.join(dir_audio_path, file_name)):
+    #             file_list.append(file_name)
+    #
+    #     # print(file_list)
+    #     # Merge by chapter
+    #     file_list.sort()
+    #     for file_name in file_list:
+    #         file_parts = re.split('_|\.',file_name)
+    #         # print(file_parts)
+    #
+    #         if file_parts[0] in chapter_list.keys():
+    #             # print('goood!')
+    #             chapter_list[file_parts[0]].append(file_name)
+    #         else:
+    #             chapter_list[file_parts[0]] = [file_name]
+    #
+    #     print(chapter_list)
+    #
+    #     # merge MP3 files
+    #
+    #     return 1
 
     def insert_tag_header(self, s):
         # tag_begin = '<prosody rate="slow" pitch="-2st">'
@@ -323,11 +359,11 @@ class TextToAudiobook:
 
     def replace_tag_ssml(self, s):
         ssml_tags = {
-            '[[-title_begin-]]': '<prosody rate="slow" pitch="-2st">',
+            '[[-title_begin-]]': '<prosody rate="slow" pitch="-1st">',
             '[[-title_end-]]': '</prosody>',
-            '[[-header_begin-]]': '<prosody rate="slow" pitch="-2st">',
+            '[[-header_begin-]]': '<prosody rate="slow" pitch="-1st">',
             '[[-header_end-]]': '</prosody>',
-            '[[-break_weak-]]': '<break time="500ms"/>',
+            '[[-break_weak-]]': '<break time="600ms"/>',
             '[[-emphasis_strong-]]': '<emphasis level="strong">',
             '[[-emphasis_moderate-]]': '<emphasis level="moderate">',
             '[[-emphasis_end-]]': '</emphasis>'
