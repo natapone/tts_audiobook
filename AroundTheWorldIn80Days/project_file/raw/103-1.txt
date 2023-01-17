@@ -2,10 +2,11 @@ Title: Around the World in Eighty Days
 
 Author: Jules Verne
 
+Produced by: The Classic Narrator 2023
+
 
 CHAPTER I.
-IN WHICH Phileas Fogg AND Passepartout ACCEPT EACH OTHER, THE ONE AS
-MASTER, THE OTHER AS MAN
+IN WHICH Phileas Fogg AND Passepartout ACCEPT EACH OTHER, THE ONE AS MASTER, THE OTHER AS MAN
 
 
 Mr. Phileas Fogg lived, in 1872, at No. 7, Saville Row, Burlington
@@ -287,8 +288,7 @@ serving a machine.”
 
 
 CHAPTER III.
-IN WHICH A CONVERSATION TAKES PLACE WHICH SEEMS LIKELY TO COST PHILEAS
-FOGG DEAR
+IN WHICH A CONVERSATION TAKES PLACE WHICH SEEMS LIKELY TO COST Phileas Fogg DEAR
 
 
 Phileas Fogg, having shut the door of his house at half-past eleven,
@@ -306,12 +306,12 @@ of Cheshire cheese, the whole being washed down with several cups of
 tea, for which the Reform is famous. He rose at thirteen minutes to
 one, and directed his steps towards the large hall, a sumptuous
 apartment adorned with lavishly-framed paintings. A flunkey handed him
-an uncut _Times_, which he proceeded to cut with a skill which betrayed
+an uncut  Times , which he proceeded to cut with a skill which betrayed
 familiarity with this delicate operation. The perusal of this paper
 absorbed Phileas Fogg until a quarter before four, whilst the
-_Standard_, his next task, occupied him till the dinner hour. Dinner
+ Standard , his next task, occupied him till the dinner hour. Dinner
 passed as breakfast had done, and Mr. Fogg re-appeared in the
-reading-room and sat down to the _Pall Mall_ at twenty minutes before
+reading-room and sat down to the  Pall Mall  at twenty minutes before
 six. Half an hour later several members of the Reform came in and drew
 up to the fireplace, where a coal fire was steadily burning. They were
 Mr. Fogg’s usual partners at whist: Andrew Stuart, an engineer; John
@@ -341,7 +341,7 @@ robber?”
 
 “Perhaps he’s a manufacturer, then.”
 
-“The _Daily Telegraph_ says that he is a gentleman.”
+“The  Daily Telegraph  says that he is a gentleman.”
 
 It was Phileas Fogg, whose head now emerged from behind his newspapers,
 who made this remark. He bowed to his friends, and entered into the
@@ -372,7 +372,7 @@ Detectives were also charged with narrowly watching those who arrived
 at or left London by rail, and a judicial examination was at once
 entered upon.
 
-There were real grounds for supposing, as the _Daily Telegraph_ said,
+There were real grounds for supposing, as the  Daily Telegraph  said,
 that the thief did not belong to a professional band. On the day of the
 robbery a well-dressed gentleman of polished manners, and with a
 well-to-do air, had been observed going to and fro in the paying room
@@ -431,9 +431,9 @@ months—”
 “That is true, gentlemen,” added John Sullivan. “Only eighty days, now
 that the section between Rothal and Allahabad, on the Great Indian
 Peninsula Railway, has been opened. Here is the estimate made by the
-_Daily Telegraph:_—
+ Daily Telegraph: —
 
-From London to Suez _viâ_ Mont Cenis and Brindisi,
+From London to Suez  viâ  Mont Cenis and Brindisi,
 “by rail and steamboats  7 days ”
 “From Suez to Bombay, by steamer  13 ”
 “From Bombay to Calcutta, by rail  3 ”
@@ -539,7 +539,7 @@ nine. I will take it.”
 “This very evening,” returned Phileas Fogg. He took out and consulted a
 pocket almanac, and added, “As today is Wednesday, the 2nd of October,
 I shall be due in London in this very room of the Reform Club, on
-Saturday, the 21st of December, at a quarter before nine p.m.; or else
+Saturday, the 21st of December, at a quarter before  9 p.m.; or else
 the twenty thousand pounds, now deposited in my name at Baring’s, will
 belong to you, in fact and in right, gentlemen. Here is a cheque for
 the amount.”
@@ -685,7 +685,7 @@ accomplished the journey agreed upon.”
 “You do not forget when you are due in London again?” asked Stuart.
 
 “In eighty days; on Saturday, the 21st of December, 1872, at a quarter
-before nine p.m. Good-bye, gentlemen.”
+before  9 p.m. Good-bye, gentlemen.”
 
 Phileas Fogg and his servant seated themselves in a first-class
 carriage at twenty minutes before nine; five minutes later the whistle
@@ -714,8 +714,7 @@ your expense.”
 
 
 CHAPTER V.
-IN WHICH A NEW SPECIES OF FUNDS, UNKNOWN TO THE MONEYED MEN, APPEARS ON
-’CHANGE
+IN WHICH A NEW SPECIES OF FUNDS, UNKNOWN TO THE MONEYED MEN, APPEARS ON ’CHANGE
 
 
 Phileas Fogg rightly suspected that his departure from London would
@@ -728,9 +727,9 @@ claim. Some took sides with Phileas Fogg, but the large majority shook
 their heads and declared against him; it was absurd, impossible, they
 declared, that the tour of the world could be made, except
 theoretically and on paper, in this minimum of time, and with the
-existing means of travelling. The _Times, Standard, Morning Post_, and
-_Daily News_, and twenty other highly respectable newspapers scouted
-Mr. Fogg’s project as madness; the _Daily Telegraph_ alone hesitatingly
+existing means of travelling. The  Times, Standard, Morning Post , and
+ Daily News , and twenty other highly respectable newspapers scouted
+Mr. Fogg’s project as madness; the  Daily Telegraph  alone hesitatingly
 supported him. People in general thought him a lunatic, and blamed his
 Reform Club friends for having accepted a wager which betrayed the
 mental aberration of its proposer.
@@ -740,8 +739,8 @@ geography is one of the pet subjects of the English; and the columns
 devoted to Phileas Fogg’s venture were eagerly devoured by all classes
 of readers. At first some rash individuals, principally of the gentler
 sex, espoused his cause, which became still more popular when the
-_Illustrated London News_ came out with his portrait, copied from a
-photograph in the Reform Club. A few readers of the _Daily Telegraph_
+ Illustrated London News  came out with his portrait, copied from a
+photograph in the Reform Club. A few readers of the  Daily Telegraph
 even dared to say, “Why not, after all? Stranger things have come to
 pass.”
 
@@ -799,7 +798,7 @@ The commissioner of police was sitting in his office at nine o’clock
 one evening, when the following telegraphic dispatch was put into his
 hands:
 
-_Suez to London._
+ Suez to London.
 
 
 ROWAN, COMMISSIONER OF POLICE, SCOTLAND YARD:
@@ -807,7 +806,7 @@ ROWAN, COMMISSIONER OF POLICE, SCOTLAND YARD:
     warrant of arrest to Bombay.
 
 
-FIX, _Detective_.
+FIX,  Detective .
 
 
 The effect of this dispatch was instantaneous. The polished gentleman
@@ -834,7 +833,7 @@ The steamer “Mongolia,” belonging to the Peninsular and Oriental
 Company, built of iron, of two thousand eight hundred tons burden, and
 five hundred horse-power, was due at eleven o’clock a.m. on Wednesday,
 the 9th of October, at Suez. The “Mongolia” plied regularly between
-Brindisi and Bombay _viâ_ the Suez Canal, and was one of the fastest
+Brindisi and Bombay  viâ  the Suez Canal, and was one of the fastest
 steamers belonging to the company, always making more than ten knots an
 hour between Brindisi and Suez, and nine and a half between Suez and
 Bombay.
@@ -945,7 +944,7 @@ This observation furnished the detective food for thought, and
 meanwhile the consul went away to his office. Fix, left alone, was more
 impatient than ever, having a presentiment that the robber was on board
 the “Mongolia.” If he had indeed left London intending to reach the New
-World, he would naturally take the route _viâ_ India, which was less
+World, he would naturally take the route  viâ  India, which was less
 watched and more difficult to watch than that of the Atlantic. But
 Fix’s reflections were soon interrupted by a succession of sharp
 whistles, which announced the arrival of the “Mongolia.” The porters
@@ -962,7 +961,7 @@ which made its appearance. Presently one of the passengers, after
 vigorously pushing his way through the importunate crowd of porters,
 came up to him and politely asked if he could point out the English
 consulate, at the same time showing a passport which he wished to have
-_visaed_. Fix instinctively took the passport, and with a rapid glance
+ visaed . Fix instinctively took the passport, and with a rapid glance
 read the description of its bearer. An involuntary motion of surprise
 nearly escaped him, for the description in the passport was identical
 with that of the bank robber which he had received from Scotland Yard.
@@ -996,8 +995,7 @@ The passenger bowed to Fix, and returned to the steamer.
 
 
 CHAPTER VII.
-WHICH ONCE MORE DEMONSTRATES THE USELESSNESS OF PASSPORTS AS AIDS TO
-DETECTIVES
+WHICH ONCE MORE DEMONSTRATES THE USELESSNESS OF PASSPORTS AS AIDS TO DETECTIVES
 
 
 The detective passed down the quay, and rapidly made his way to the
@@ -1016,11 +1014,11 @@ have his passport countersigned.”
 
 “If he is as shrewd as I think he is, consul, he will come.”
 
-“To have his passport _visaed?_”
+“To have his passport  visaed? ”
 
 “Yes. Passports are only good for annoying honest folks, and aiding in
 the flight of rogues. I assure you it will be quite the thing for him
-to do; but I hope you will not _visa_ the passport.”
+to do; but I hope you will not  visa  the passport.”
 
 “Why not? If the passport is genuine I have no right to refuse.”
 
@@ -1033,7 +1031,7 @@ The consul did not finish his sentence, for as he spoke a knock was
 heard at the door, and two strangers entered, one of whom was the
 servant whom Fix had met on the quay. The other, who was his master,
 held out his passport with the request that the consul would do him the
-favour to _visa_ it. The consul took the document and carefully read
+favour to  visa  it. The consul took the document and carefully read
 it, whilst Fix observed, or rather devoured, the stranger with his eyes
 from a corner of the room.
 
@@ -1054,11 +1052,11 @@ passport.
 
 “To Bombay.”
 
-“Very good, sir. You know that a _visa_ is useless, and that no
+“Very good, sir. You know that a  visa  is useless, and that no
 passport is required?”
 
 “I know it, sir,” replied Phileas Fogg; “but I wish to prove, by your
-_visa_, that I came by Suez.”
+ visa , that I came by Suez.”
 
 “Very well, sir.”
 
@@ -1088,21 +1086,21 @@ gave some orders to Passepartout, went off to the “Mongolia” in a boat,
 and descended to his cabin. He took up his note-book, which contained
 the following memoranda:
 
-“Left London, Wednesday, October 2nd, at 8.45 p.m.
+“Left London, Wednesday, October 2nd, at 8.45 p.m.”
 
-“Reached Paris, Thursday, October 3rd, at 7.20 a.m.
+“Reached Paris, Thursday, October 3rd, at 7.20 a.m.”
 
-“Left Paris, Thursday, at 8.40 a.m.
+“Left Paris, Thursday, at 8.40 a.m.”
 
-“Reached Turin by Mont Cenis, Friday, October 4th, at 6.35 a.m.
+“Reached Turin by Mont Cenis, Friday, October 4th, at 6.35 a.m.”
 
-“Left Turin, Friday, at 7.20 a.m.
+“Left Turin, Friday, at 7.20 a.m.”
 
-“Arrived at Brindisi, Saturday, October 5th, at 4 p.m.
+“Arrived at Brindisi, Saturday, October 5th, at 4 p.m.”
 
-“Sailed on the ‘Mongolia,’ Saturday, at 5 p.m.
+“Sailed on the ‘Mongolia,’ Saturday, at 5 p.m.”
 
-“Reached Suez, Wednesday, October 9th, at 11 a.m.
+“Reached Suez, Wednesday, October 9th, at 11 a.m.”
 
 “Total of hours spent, 158½; or, in days, six days and a half.”
 
@@ -1132,7 +1130,7 @@ the quay, as if he did not feel that he, at least, was obliged not to
 see anything.
 
 “Well, my friend,” said the detective, coming up with him, “is your
-passport _visaed?_”
+passport  visaed? ”
 
 “Ah, it’s you, is it, monsieur?” responded Passepartout. “Thanks, yes,
 the passport is all right.”
@@ -1281,7 +1279,7 @@ his track.”
 
 “I am not mistaken.”
 
-“Why was this robber so anxious to prove, by the _visa_, that he had
+“Why was this robber so anxious to prove, by the  visa , that he had
 passed through Suez?”
 
 “Why? I have no idea; but listen to me.”
@@ -1308,8 +1306,7 @@ noble steamer rode out at full steam upon the waters of the Red Sea.
 
 
 CHAPTER IX.
-IN WHICH THE RED SEA AND THE INDIAN OCEAN PROVE PROPITIOUS TO THE
-DESIGNS OF Phileas Fogg
+IN WHICH THE RED SEA AND THE INDIAN OCEAN PROVE PROPITIOUS TO THE DESIGNS OF Phileas Fogg
 
 
 The distance between Suez and Aden is precisely thirteen hundred and
@@ -1451,7 +1448,7 @@ Aden on the morning of the 15th, when she was due, arrived there on the
 evening of the 14th, a gain of fifteen hours.
 
 Mr. Fogg and his servant went ashore at Aden to have the passport again
-_visaed;_ Fix, unobserved, followed them. The _visa_ procured, Mr. Fogg
+ visaed;  Fix, unobserved, followed them. The  visa  procured, Mr. Fogg
 returned on board to resume his former habits; while Passepartout,
 according to custom, sauntered about among the mixed population of
 Somalis, Banyans, Parsees, Jews, Arabs, and Europeans who comprise the
@@ -1460,7 +1457,7 @@ fortifications which make this place the Gibraltar of the Indian Ocean,
 and the vast cisterns where the English engineers were still at work,
 two thousand years after the engineers of Solomon.
 
-“Very curious, _very_ curious,” said Passepartout to himself, on
+“Very curious,  very  curious,” said Passepartout to himself, on
 returning to the steamer. “I see that it is by no means useless to
 travel, if a man wants to see something new.” At six p.m. the
 “Mongolia” slowly moved out of the roadstead, and was soon once more on
@@ -1492,8 +1489,7 @@ of gains.
 
 
 CHAPTER X.
-IN WHICH Passepartout IS ONLY TOO GLAD TO GET OFF WITH THE LOSS OF HIS
-SHOES
+IN WHICH Passepartout IS ONLY TOO GLAD TO GET OFF WITH THE LOSS OF HIS SHOES
 
 
 Everybody knows that the great reversed triangle of land, with its base
@@ -1668,8 +1664,7 @@ into the darkness of the night.
 
 
 CHAPTER XI.
-IN WHICH Phileas Fogg SECURES A CURIOUS MEANS OF CONVEYANCE AT A
-FABULOUS PRICE
+IN WHICH Phileas Fogg SECURES A CURIOUS MEANS OF CONVEYANCE AT A FABULOUS PRICE
 
 
 The train had started punctually. Among the passengers were a number of
@@ -1966,8 +1961,7 @@ marching off through the dense forest of palms by the shortest cut.
 
 
 CHAPTER XII.
-IN WHICH Phileas Fogg AND HIS COMPANIONS VENTURE ACROSS THE INDIAN
-FORESTS, AND WHAT ENSUED
+IN WHICH Phileas Fogg AND HIS COMPANIONS VENTURE ACROSS THE INDIAN FORESTS, AND WHAT ENSUED
 
 
 In order to shorten the journey, the guide passed to the left of the
@@ -2221,8 +2215,7 @@ Cromarty, said, “Suppose we save this woman.”
 
 
 CHAPTER XIII.
-IN WHICH Passepartout RECEIVES A NEW PROOF THAT FORTUNE FAVORS THE
-BRAVE
+IN WHICH Passepartout RECEIVES A NEW PROOF THAT FORTUNE FAVORS THE BRAVE
 
 
 The project was a bold one, full of difficulty, perhaps impracticable.
@@ -2468,8 +2461,7 @@ themselves beyond the reach of the bullets and arrows.
 
 
 CHAPTER XIV.
-IN WHICH Phileas Fogg DESCENDS THE WHOLE LENGTH OF THE BEAUTIFUL VALLEY
-OF THE GANGES WITHOUT EVER THINKING OF SEEING IT
+IN WHICH Phileas Fogg DESCENDS THE WHOLE LENGTH OF THE BEAUTIFUL VALLEY OF THE GANGES WITHOUT EVER THINKING OF SEEING IT
 
 
 The rash exploit had been accomplished; and for an hour Passepartout
@@ -2953,8 +2945,7 @@ diminishing.
 
 
 CHAPTER XVI.
-IN WHICH FIX DOES NOT SEEM TO UNDERSTAND IN THE LEAST WHAT IS SAID TO
-HIM
+IN WHICH FIX DOES NOT SEEM TO UNDERSTAND IN THE LEAST WHAT IS SAID TO HIM
 
 
 The “Rangoon”—one of the Peninsular and Oriental Company’s boats plying
@@ -3043,7 +3034,7 @@ warrant will be at Hong Kong, in which case I shall arrest my man, or
 it will not be there; and this time it is absolutely necessary that I
 should delay his departure. I have failed at Bombay, and I have failed
 at Calcutta; if I fail at Hong Kong, my reputation is lost: Cost what
-it may, I _must_ succeed! But how shall I prevent his departure, if
+it may, I  must  succeed! But how shall I prevent his departure, if
 that should turn out to be my last resource?”
 
 Fix made up his mind that, if worst came to worst, he would make a
@@ -3499,8 +3490,7 @@ gait to obey his master’s order.
 
 
 CHAPTER XIX.
-IN WHICH Passepartout TAKES A TOO GREAT INTEREST IN HIS MASTER, AND
-WHAT COMES OF IT
+IN WHICH Passepartout TAKES A TOO GREAT INTEREST IN HIS MASTER, AND WHAT COMES OF IT
 
 
 Hong Kong is an island which came into the possession of the English by
@@ -3794,10 +3784,10 @@ was confused by his patience and generosity:
 “It is in the interest of my journey—a part of my programme.”
 
 The purchases made, they returned to the hotel, where they dined at a
-sumptuously served _table-d’hôte;_ after which Aouda, shaking hands
+sumptuously served  table-d’hôte;  after which Aouda, shaking hands
 with her protector after the English fashion, retired to her room for
 rest. Mr. Fogg absorbed himself throughout the evening in the perusal
-of the _Times_ and _Illustrated London News_.
+of the  Times  and  Illustrated London News .
 
 Had he been capable of being astonished at anything, it would have been
 not to see his servant return at bedtime. But, knowing that the steamer
@@ -4034,8 +4024,7 @@ standing-jib, bounded briskly forward over the waves.
 
 
 CHAPTER XXI.
-IN WHICH THE MASTER OF THE “TANKADERE” RUNS GREAT RISK OF LOSING A
-REWARD OF TWO HUNDRED POUNDS
+IN WHICH THE MASTER OF THE “TANKADERE” RUNS GREAT RISK OF LOSING A REWARD OF TWO HUNDRED POUNDS
 
 
 This voyage of eight hundred miles was a perilous venture on a craft of
@@ -4332,8 +4321,7 @@ in the air.
 
 
 CHAPTER XXII.
-IN WHICH Passepartout FINDS OUT THAT, EVEN AT THE ANTIPODES, IT IS
-CONVENIENT TO HAVE SOME MONEY IN ONE’S POCKET
+IN WHICH Passepartout FINDS OUT THAT, EVEN AT THE ANTIPODES, IT IS CONVENIENT TO HAVE SOME MONEY IN ONE’S POCKET
 
 
 The “Carnatic,” setting sail from Hong Kong at half-past six on the 7th
@@ -5102,7 +5090,7 @@ themselves at a table, were abundantly served on diminutive plates by
 negroes of darkest hue.
 
 After breakfast, Mr. Fogg, accompanied by Aouda, started for the
-English consulate to have his passport _visaed_. As he was going out,
+English consulate to have his passport  visaed . As he was going out,
 he met Passepartout, who asked him if it would not be well, before
 taking the train, to purchase some dozens of Enfield rifles and Colt’s
 revolvers. He had been listening to stories of attacks upon the trains
@@ -5324,7 +5312,7 @@ follows its southern branch, crosses the Laramie territory and the
 Wahsatch Mountains, turns the Great Salt Lake, and reaches Salt Lake
 City, the Mormon capital, plunges into the Tuilla Valley, across the
 American Desert, Cedar and Humboldt Mountains, the Sierra Nevada, and
-descends, _viâ_ Sacramento, to the Pacific—its grade, even on the Rocky
+descends,  viâ  Sacramento, to the Pacific—its grade, even on the Rocky
 Mountains, never exceeding one hundred and twelve feet to the mile.
 
 Such was the road to be traversed in seven days, which would enable
@@ -5443,7 +5431,7 @@ discharge his arsenal of revolvers upon them.
 
 “What a country!” cried he. “Mere cattle stop the trains, and go by in
 a procession, just as if they were not impeding travel! Parbleu! I
-should like to know if Mr. Fogg foresaw _this_ mishap in his programme!
+should like to know if Mr. Fogg foresaw  this  mishap in his programme!
 And here’s an engineer who doesn’t dare to run the locomotive into this
 herd of beasts!”
 
@@ -5467,8 +5455,7 @@ of the Great Salt Lake, the singular colony of the Mormons.
 
 
 CHAPTER XXVII.
-IN WHICH Passepartout UNDERGOES, AT A SPEED OF TWENTY MILES AN HOUR, A
-COURSE OF MORMON HISTORY
+IN WHICH Passepartout UNDERGOES, AT A SPEED OF TWENTY MILES AN HOUR, A COURSE OF MORMON HISTORY
 
 
 During the night of the 5th of December, the train ran south-easterly
@@ -5677,8 +5664,7 @@ that was enough!”
 
 
 CHAPTER XXVIII.
-IN WHICH Passepartout DOES NOT SUCCEED IN MAKING ANYBODY LISTEN TO
-REASON
+IN WHICH Passepartout DOES NOT SUCCEED IN MAKING ANYBODY LISTEN TO REASON
 
 
 The train, on leaving Great Salt Lake at Ogden, passed northward for an
@@ -5999,8 +5985,7 @@ ruined, fell with a crash into the rapids of Medicine Bow.
 
 
 CHAPTER XXIX.
-IN WHICH CERTAIN INCIDENTS ARE NARRATED WHICH ARE ONLY TO BE MET WITH
-ON AMERICAN RAILROADS
+IN WHICH CERTAIN INCIDENTS ARE NARRATED WHICH ARE ONLY TO BE MET WITH ON AMERICAN RAILROADS
 
 
 The train pursued its course, that evening, without interruption,
@@ -6029,8 +6014,8 @@ of October, 1867, by the chief engineer, General Dodge. Two powerful
 locomotives, carrying nine cars of invited guests, amongst whom was
 Thomas C. Durant, vice-president of the road, stopped at this point;
 cheers were given, the Sioux and Pawnees performed an imitation Indian
-battle, fireworks were let off, and the first number of the _Railway
-Pioneer_ was printed by a press brought on the train. Thus was
+battle, fireworks were let off, and the first number of the  Railway
+Pioneer  was printed by a press brought on the train. Thus was
 celebrated the inauguration of this great railroad, a mighty instrument
 of progress and civilisation, thrown across the desert, and destined to
 link together cities and towns which do not yet exist. The whistle of
@@ -6567,8 +6552,7 @@ time lost might be regained.
 
 
 CHAPTER XXXI.
-IN WHICH FIX, THE DETECTIVE, CONSIDERABLY FURTHERS THE INTERESTS OF
-Phileas Fogg
+IN WHICH FIX, THE DETECTIVE, CONSIDERABLY FURTHERS THE INTERESTS OF Phileas Fogg
 
 
 Phileas Fogg found himself twenty hours behind time. Passepartout, the
@@ -7383,8 +7367,7 @@ had lost the wager!
 
 
 CHAPTER XXXV.
-IN WHICH Phileas Fogg DOES NOT HAVE TO REPEAT HIS ORDERS TO
-Passepartout TWICE
+IN WHICH Phileas Fogg DOES NOT HAVE TO REPEAT HIS ORDERS TO Passepartout TWICE
 
 
 The dwellers in Saville Row would have been surprised the next day, if
@@ -7734,8 +7717,7 @@ doors, and in his calm voice, said, “Here I am, gentlemen!”
 
 
 CHAPTER XXXVII.
-IN WHICH IT IS SHOWN THAT Phileas Fogg GAINED NOTHING BY HIS TOUR
-AROUND THE WORLD, UNLESS IT WERE HAPPINESS
+IN WHICH IT IS SHOWN THAT Phileas Fogg GAINED NOTHING BY HIS TOUR AROUND THE WORLD, UNLESS IT WERE HAPPINESS
 
 
 Yes; Phileas Fogg in person.
@@ -7805,9 +7787,9 @@ the twentieth, the seventy-ninth day only from his departure?
 The cause of the error is very simple.
 
 Phileas Fogg had, without suspecting it, gained one day on his journey,
-and this merely because he had travelled constantly _eastward;_ he
+and this merely because he had travelled constantly  eastward;  he
 would, on the contrary, have lost a day had he gone in the opposite
-direction, that is, _westward_.
+direction, that is,  westward .
 
 In journeying eastward he had gone towards the sun, and the days
 therefore diminished for him as many times four minutes as he crossed
@@ -7815,9 +7797,9 @@ degrees in this direction. There are three hundred and sixty degrees on
 the circumference of the earth; and these three hundred and sixty
 degrees, multiplied by four minutes, gives precisely twenty-four
 hours—that is, the day unconsciously gained. In other words, while
-Phileas Fogg, going eastward, saw the sun pass the meridian _eighty_
+Phileas Fogg, going eastward, saw the sun pass the meridian  eighty
 times, his friends in London only saw it pass the meridian
-_seventy-nine_ times. This is why they awaited him at the Reform Club
+ seventy-nine  times. This is why they awaited him at the Reform Club
 on Saturday, and not Sunday, as Mr. Fogg thought.
 
 And Passepartout’s famous family watch, which had always kept London

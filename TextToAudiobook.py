@@ -359,9 +359,9 @@ class TextToAudiobook:
 
     def replace_tag_ssml(self, s):
         ssml_tags = {
-            '[[-title_begin-]]': '<prosody rate="slow" pitch="-1st">',
+            '[[-title_begin-]]': '<prosody rate="slow">',
             '[[-title_end-]]': '</prosody>',
-            '[[-header_begin-]]': '<prosody rate="slow" pitch="-1st">',
+            '[[-header_begin-]]': '<prosody rate="slow">',
             '[[-header_end-]]': '</prosody>',
             '[[-break_weak-]]': '<break time="600ms"/>',
             '[[-emphasis_strong-]]': '<emphasis level="strong">',
@@ -416,7 +416,7 @@ class TextToAudiobook:
             return False
 
     def is_book_title(self, s):
-        pattern = re.compile("^Title:|Author:")
+        pattern = re.compile("^Title:|Author:|Produced by:")
 
         if pattern.match(s):
             return True
