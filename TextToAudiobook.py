@@ -1,6 +1,10 @@
 import re
 import os
 import time
+import ffmpeg
+import datetime
+import math
+
 
 from pathlib import Path
 from google.cloud import texttospeech
@@ -15,6 +19,42 @@ class TextToAudiobook:
 
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
+
+    def gen_youtube_chapter_marker(self, file_name):
+        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+
+        # List text files
+        audio_infos = {}
+        file_count = 0
+        for file_name in os.listdir(dir_audio_path):
+            # check if current path is a file
+            if os.path.isfile(os.path.join(dir_audio_path, file_name)):
+                file_audio_path = dir_audio_path + file_name
+                audio_infos[file_name] = ffmpeg.probe(file_audio_path)['format']['duration']
+
+        total_duration_sec = 0
+        chapter_marker = 2
+        current_chapter = -1
+
+        chapter_text = "0:00:00 Chapter 1"
+        for i in sorted(audio_infos.keys()):
+            # check chapter number
+            file_parts = i.split('_')
+            chapter_num = int(file_parts[0])
+            # print("Ch:", chapter_num, "/", chapter_marker, " total=", total_duration_sec)
+
+            # new chapter and start at ch 2
+            if chapter_num >= chapter_marker:
+                to_minute = str(datetime.timedelta(seconds=math.floor(total_duration_sec)))
+                # print ("  Export=>",   to_minute, '(',total_duration_sec,  ')',  "Chaptor", chapter_num )
+                chapter_text += ("\n" + to_minute + " " + "Chaptor " + str(chapter_num))
+                chapter_marker +=1
+
+            duration_sec = float(audio_infos[i])
+            total_duration_sec += duration_sec
+            # print("  - ",i, ": ", duration_sec, "=>", total_duration_sec, '=>', total_duration_sec)
+
+        return chapter_text
 
     def synthesize_ssml(self, ssml, audio_file_path, voice=None, audio_config=None):
         client = texttospeech.TextToSpeechClient()
