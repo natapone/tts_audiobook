@@ -20,6 +20,65 @@ class TextToAudiobook:
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
 
+    
+
+    def merge_audio_files(self, file_name):
+        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+        dir_video_path = self.project_file + "video/"
+        file_video_path = dir_video_path + self.file_to_folder_name(file_name) + ".mp4"
+
+        # Check target dir
+        Path(dir_video_path).mkdir(parents=True, exist_ok=True)
+
+        # List text files
+        file_list = []
+        file_count = 0
+        for a_name in os.listdir(dir_audio_path):
+            # check if current path is a file
+            if (
+                    (os.path.isfile(os.path.join(dir_audio_path, a_name))) &
+                    (a_name.lower().endswith(('.mp3')))
+                ):
+                file_list.append(a_name)
+
+        file_list.sort()
+        # write audio tracks list to file
+        track_list_file = dir_audio_path + 'track_list.txt'
+        with open(track_list_file, "w") as file_track:
+            #
+            for a_name in file_list:
+                file_track.write("file '" + a_name + "'\n")
+                file_count+=1
+                # print(file_path)
+
+        print(f"Generate track list: {track_list_file} [total: {file_count} files]")
+
+        # merge mp3 files
+        file_audio_full_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + ".mp3"
+        cmd_string = '''
+        ffmpeg -f concat \
+        -i {} \
+        -c copy {} -y
+        '''
+        # print(cmd_string.format(track_list_file, file_audio_full_path))
+        os.system(cmd_string.format(track_list_file, file_audio_full_path))
+
+        print(f"Generate full audio: {file_audio_full_path}")
+
+        # check file exist
+        # file_image_path = self.project_file + "video/" + self.file_to_folder_name(file_name) + ".png"
+        # has_audio_file = os.path.exists(file_audio_full_path)
+        # has_image_file = os.path.exists(file_image_path)
+        #
+        # if not (has_audio_file & has_image_file):
+        #     print("Check audio or image files")
+        #     return 0
+
+        # merge audio to image
+
+
+        return file_audio_full_path
+
     def gen_youtube_chapter_marker(self, file_name):
         dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
 
@@ -28,7 +87,11 @@ class TextToAudiobook:
         file_count = 0
         for file_name in os.listdir(dir_audio_path):
             # check if current path is a file
-            if os.path.isfile(os.path.join(dir_audio_path, file_name)):
+            # if os.path.isfile(os.path.join(dir_audio_path, file_name)):
+            if (
+                    (os.path.isfile(os.path.join(dir_audio_path, file_name))) &
+                    (file_name.lower().endswith(('.mp3')))
+                ):
                 file_audio_path = dir_audio_path + file_name
                 audio_infos[file_name] = ffmpeg.probe(file_audio_path)['format']['duration']
 
