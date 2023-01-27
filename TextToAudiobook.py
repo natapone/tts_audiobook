@@ -20,15 +20,41 @@ class TextToAudiobook:
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
 
-    
-
-    def merge_audio_files(self, file_name):
-        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+    def merge_video_file(self, file_name):
         dir_video_path = self.project_file + "video/"
+        dir_image_path = self.project_file + "image/"
         file_video_path = dir_video_path + self.file_to_folder_name(file_name) + ".mp4"
+        file_audio_full_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + ".mp3"
 
         # Check target dir
         Path(dir_video_path).mkdir(parents=True, exist_ok=True)
+
+        # check file exist
+        file_image_path = dir_image_path + self.file_to_folder_name(file_name) + ".png"
+        has_audio_file = os.path.exists(file_audio_full_path)
+        has_image_file = os.path.exists(file_image_path)
+
+        if not (has_audio_file & has_image_file):
+            print("Check audio or image files")
+            return 0
+
+        # merge audio to image
+        cmd_string = '''
+        ffmpeg -loop 1 \
+        -i {} \
+        -i {} \
+        -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest {} \
+        -y
+        '''
+
+        # print(cmd_string.format(file_image_path, file_audio_full_path, file_video_path))
+        os.system(cmd_string.format(file_image_path, file_audio_full_path, file_video_path))
+
+        print(f"Generate full video: {file_video_path}")
+        return file_video_path
+
+    def merge_audio_files(self, file_name):
+        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
 
         # List text files
         file_list = []
@@ -64,18 +90,6 @@ class TextToAudiobook:
         os.system(cmd_string.format(track_list_file, file_audio_full_path))
 
         print(f"Generate full audio: {file_audio_full_path}")
-
-        # check file exist
-        # file_image_path = self.project_file + "video/" + self.file_to_folder_name(file_name) + ".png"
-        # has_audio_file = os.path.exists(file_audio_full_path)
-        # has_image_file = os.path.exists(file_image_path)
-        #
-        # if not (has_audio_file & has_image_file):
-        #     print("Check audio or image files")
-        #     return 0
-
-        # merge audio to image
-
 
         return file_audio_full_path
 
