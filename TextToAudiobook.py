@@ -161,6 +161,34 @@ class TextToAudiobook:
 
         return 1
 
+    def synthesize_text(self, text, audio_file_path, voice=None, audio_config=None):
+        client = texttospeech.TextToSpeechClient()
+        input_text = texttospeech.SynthesisInput(text=text)
+
+        if voice == None:
+            voice = texttospeech.VoiceSelectionParams(
+                language_code="en-GB",
+                name="en-GB-Neural2-B",
+                ssml_gender=texttospeech.SsmlVoiceGender.MALE,
+            )
+
+        if audio_config == None:
+            audio_config = texttospeech.AudioConfig(
+                audio_encoding=texttospeech.AudioEncoding.MP3,
+                speaking_rate=0.8
+            )
+
+        response = client.synthesize_speech(
+            input=input_text, voice=voice, audio_config=audio_config
+        )
+
+        # The response's audio_content is binary.
+        with open(audio_file_path, "wb") as out:
+            out.write(response.audio_content)
+            print(f"Generate audio => {audio_file_path}")
+
+        return 1
+
     def clean_txt_raw(self, file_name):
         dir_clean_path = self.project_file + "clean/"
         file_clean_path = dir_clean_path + file_name
@@ -335,7 +363,10 @@ class TextToAudiobook:
         file_count = 0
         for file_name in os.listdir(dir_split_path):
             # check if current path is a file
-            if os.path.isfile(os.path.join(dir_split_path, file_name)):
+            if (
+                (os.path.isfile(os.path.join(dir_split_path, file_name))) &
+                (file_name.lower().endswith(('.txt')))
+                ):
                 file_list.append(file_name)
 
                 # file_split_path = dir_split_path + file_name
