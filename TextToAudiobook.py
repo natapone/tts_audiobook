@@ -507,9 +507,9 @@ class TextToAudiobook:
 
     def replace_tag_ssml(self, s):
         ssml_tags = {
-            '[[-title_begin-]]': '<prosody rate="slow">',
+            '[[-title_begin-]]': '<prosody rate="medium">',
             '[[-title_end-]]': '</prosody>',
-            '[[-header_begin-]]': '<prosody rate="slow">',
+            '[[-header_begin-]]': '<prosody rate="medium">',
             '[[-header_end-]]': '</prosody>',
             '[[-break_weak-]]': '<break time="600ms"/>',
             '[[-emphasis_strong-]]': '<emphasis level="strong">',
