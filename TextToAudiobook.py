@@ -133,6 +133,67 @@ class TextToAudiobook:
 
         return chapter_text
 
+    def gen_srt_subtitle(self, file_name):
+        dir_audio_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + "/"
+        dir_split_backup_path = self.project_file + "split/" + self.file_to_folder_name(file_name) + "/backup/"
+        file_subtitle_path = self.project_file + "audio/" + self.file_to_folder_name(file_name) + ".srt"
+
+        # List text files
+        audio_infos = {}
+        for file_name in os.listdir(dir_audio_path):
+            # check if current path is a file
+            # if os.path.isfile(os.path.join(dir_audio_path, file_name)):
+            if (
+                    (os.path.isfile(os.path.join(dir_audio_path, file_name))) &
+                    (file_name.lower().endswith(('.mp3')))
+                ):
+                file_audio_path = dir_audio_path + file_name
+                file_parts = file_name.split(".")
+                audio_infos[file_parts[0]] = ffmpeg.probe(file_audio_path)['format']['duration']
+
+
+        total_duration_sec = 0
+        file_count = 0
+
+
+        with open(file_subtitle_path, "w") as file_sub:
+            # Sort
+            for i in sorted(audio_infos.keys()):
+                duration_sec = float(audio_infos[i])
+                sub_start = total_duration_sec
+                sub_end = total_duration_sec + duration_sec -0.1
+                total_duration_sec += duration_sec
+
+                sub_start_minute = str(datetime.timedelta(seconds=sub_start))
+                sub_end_minute = str(datetime.timedelta(seconds=sub_end))
+                file_count += 1
+                # print(f"{file_count}: {i} {sub_start} --> {sub_end} ({total_duration_sec})" )
+                # print(f"{file_count}: {i} {sub_start_minute} --> {sub_end_minute} ({total_duration_sec})" )
+
+                # loop read Text
+                # print("Read ====>", dir_split_backup_path + i + '.txt')
+                file_split_backup_path = dir_split_backup_path + i + '.txt'
+
+                with open(file_split_backup_path, "r") as file_txt:
+                    lines = file_txt.readlines()
+
+                    # Merge Time start, time end, Text subtitle
+                    file_sub.write(f"{file_count}\n")
+                    file_sub.write(f"{sub_start_minute} --> {sub_end_minute} \n" )
+
+                    # Stript tags
+                    for line in lines:
+                        pattern = re.compile('<.*?>')
+                        line = re.sub(pattern, '', line.strip())
+
+                        if len(line) > 0:
+                            file_sub.write(line + "\n")
+
+                    file_sub.write("\n")
+
+        print("Generate subtitle file: ", file_subtitle_path)
+        return file_subtitle_path
+
     def synthesize_ssml(self, ssml, audio_file_path, voice=None, audio_config=None):
         client = texttospeech.TextToSpeechClient()
         input_text = texttospeech.SynthesisInput(ssml=ssml)
@@ -207,6 +268,7 @@ class TextToAudiobook:
 
                     # Replace Roman chapter number with numeric
                     line_clean = self.clean_roman_num_in_string(line.strip())
+                    # line_clean = line.strip()
                     file_clean.write(line_clean + "\n")
 
                     # print("Line {}: {}".format(line_count, line.strip()))
