@@ -269,6 +269,8 @@ class TextToAudiobook:
                     # Replace Roman chapter number with numeric
                     line_clean = self.clean_roman_num_in_string(line.strip())
                     # line_clean = line.strip()
+                    line_clean = self.clean_invalid_symbol(line_clean) # replace &
+
                     file_clean.write(line_clean + "\n")
 
                     # print("Line {}: {}".format(line_count, line.strip()))
@@ -565,6 +567,9 @@ class TextToAudiobook:
             # print(speech, "==>", tag_full)
             s = s.replace(speech, tag_full, 1)
 
+        # remove incompleted quotes
+        s = re.sub(r'("|“|”)', " ", s)
+        
         return s
 
     def replace_tag_ssml(self, s):
@@ -612,6 +617,12 @@ class TextToAudiobook:
 
         for roman in romans:
             s = s.replace(roman, str(self.roman_to_int(roman)))
+
+        return s
+
+    def clean_invalid_symbol(self, s):
+        s = s.replace(' & ', ' and ')
+        s = s.replace('_', ' ')
 
         return s
 
