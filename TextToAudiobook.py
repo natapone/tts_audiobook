@@ -569,7 +569,7 @@ class TextToAudiobook:
 
         # remove incompleted quotes
         s = re.sub(r'("|“|”)', " ", s)
-        
+
         return s
 
     def replace_tag_ssml(self, s):
@@ -610,8 +610,9 @@ class TextToAudiobook:
 
     def clean_roman_num_in_string(self, s):
         romans = re.findall(
-            r'(?=\b[MCDXLVI]{1,6}\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\.)'
+            r'(?=\b[MCDXLVI]{1,7}\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\.)'
             , s )
+
         # print(romans)
         romans.sort(key=len, reverse=1)
 
