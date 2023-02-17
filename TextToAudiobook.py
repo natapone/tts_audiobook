@@ -125,7 +125,8 @@ class TextToAudiobook:
                 to_minute = str(datetime.timedelta(seconds=math.floor(total_duration_sec)))
                 # print ("  Export=>",   to_minute, '(',total_duration_sec,  ')',  "Chaptor", chapter_num )
                 chapter_text += ("\n" + to_minute + " " + "Chaptor " + str(chapter_num))
-                chapter_marker +=1
+                chapter_marker = chapter_num + 1
+                # chapter_marker +=1
 
             duration_sec = float(audio_infos[i])
             total_duration_sec += duration_sec
