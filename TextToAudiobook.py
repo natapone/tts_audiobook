@@ -270,7 +270,11 @@ class TextToAudiobook:
                     # Replace Roman chapter number with numeric
                     line_clean = self.clean_roman_num_in_string(line.strip())
                     # line_clean = line.strip()
-                    line_clean = self.clean_invalid_symbol(line_clean) # replace &
+                    line_clean = self.clean_invalid_symbol(line_clean)
+
+                    # Fix all upper case sentence
+                    if not self.is_chapter_header(line_clean):
+                        line_clean = self.fix_all_upper(line_clean)
 
                     file_clean.write(line_clean + "\n")
 
@@ -663,6 +667,12 @@ class TextToAudiobook:
 
     def file_to_folder_name(self, f):
         return f.replace('.', '_')
+
+    def fix_all_upper(self, sentence):
+        if sentence.isupper():
+            sentence = sentence.lower()
+            sentence = sentence.title()
+        return sentence
 
 # Steps
 # - fetch full text file
