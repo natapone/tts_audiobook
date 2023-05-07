@@ -1,7 +1,0 @@
-<speak>
-<prosody rate="slow" pitch="-1st">Title: Around the World in Eighty Days</prosody>
-<break time="600ms"/>
-<prosody rate="slow" pitch="-1st">Author: Jules Verne</prosody>
-<break time="600ms"/>
-<break time="600ms"/>
-</speak>

@@ -1,8 +1,0 @@
-<speak>
-<prosody rate="slow" pitch="-1st">Epilogue</prosody>
-<break time="600ms"/>
-<emphasis level="moderate">AND I only am ESCAPED ALONE TO TELL THEE</emphasis> Job.
-<break time="600ms"/>
-The drama’s done. Why then here does any one step forth?—Because one
-did survive the wreck.
-</speak>
