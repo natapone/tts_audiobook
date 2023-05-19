@@ -629,6 +629,7 @@ class TextToAudiobook:
     def clean_invalid_symbol(self, s):
         s = s.replace(' & ', ' and ')
         s = s.replace('_', ' ')
+        s = s.replace(', ', '. ')
 
         return s
 

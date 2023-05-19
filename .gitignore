@@ -136,3 +136,5 @@ dmypy.json
 */project_file/tag/*
 */project_file/video/*
 */project_file/image/*
+
+/config/*

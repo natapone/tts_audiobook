@@ -24,7 +24,7 @@ class TextToAudiobookAi:
         self.tag_chapter_break = "[[-chapter_break-]]"
         self.tag_character_break = "[[-character_break-]]"
 
-        self.config_path = "./config/config_example.json"
+        self.config_path = "./config/config.json"
         self.config = self.load_config()
         # self.load_config()
 
@@ -33,7 +33,6 @@ class TextToAudiobookAi:
         with open(self.config_path) as config_file:
             config = json.load(config_file)
             
-        print('=====', config )
         return config
 
     #0 Clean previous script
@@ -169,7 +168,7 @@ class TextToAudiobookAi:
                     # Write to file
                     file_split_name = str(ch_count).zfill(4) + "_" + str(part_count).zfill(3) + ".txt"
 
-                    print (f"    ===> Write to:{file_split_name} :{text_script}")
+                    # print (f"    ===> Write to:{file_split_name} :{text_script}")
 
                     file_split_path = dir_split_path + file_split_name
 
@@ -284,11 +283,11 @@ class TextToAudiobookAi:
         response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
             messages = prompt_input,
-            temperature = 0.7,
+            temperature = 0.0,
             # max_tokens = prompt_params.get('max_tokens',2500)
         )
 
-        print(response)
+        # print(response)
         return response
     
     def enhance_prompt_interpret_test_result(self, prompt_input):
